@@ -30,10 +30,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '74px',
     fontFamily: 'Helvetica',
     fontWeight: 'bold',
-    margin: '15px'
+    margin: '15px',
+    marginBottom:'60px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '35px',
+    },
   },
   boton: {
-    margin: '15px'
+    margin: '15px',
+  },
+  imgMapa:{
+    width: '100%',
   },
 
 }));
@@ -212,12 +219,12 @@ const Contacto = () => {
 
 
     <div className={classes.root}>
-      <Grid container direction='row'>
+      <Grid container direction='row' justify='center'>
        
           <Grid item sm={5} xs={12}>
-            <p className={classes.tituloPrincipal}>Contáctenos</p>
+            <p className={classes.tituloPrincipal}>Encuéntranos</p>
 
-            <TextField
+            {/* <TextField
               className={classes.inputs}
               name="nombre"
               label="Nombre"
@@ -278,7 +285,12 @@ const Contacto = () => {
             
             <Button type='submit' variant="contained" disabled={errorData.errorBoton} className={classes.boton}>
               Enviar
-            </Button>
+            </Button> */}
+            
+           <a  target="_blank" href='https://www.google.com/maps/place/Cl.+36+%2393-29,+Medell%C3%ADn,+Antioquia/@6.249538,-75.6165233,17z/data=!3m1!4b1!4m5!3m4!1s0x8e4429820636c399:0xb14f663c3eb6e69!8m2!3d6.249922!4d-75.614561?hl=es'>
+           <center><img src={Mapa} className={classes.imgMapa}></img>
+           </center>
+           </a>
            
           </Grid>
       </Grid>

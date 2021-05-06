@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Menu as MenuIcon } from '@material-ui/icons'
 import ImgLogo from '../Images/logo.png';
 import { Link } from 'react-router-dom';
+import Whatsapp from '../Images/Whatsapp.png'
 
 const useStyles = makeStyles({
     root: {
@@ -32,6 +33,13 @@ const useStyles = makeStyles({
     },
     footer: {
         marginTop: '50px',
+    },
+    imgWhatsapp:{
+        position:'fixed',
+        display:'scroll',
+        bottom:'130px',
+        right:'0px',
+        width:'70px'
     }
 
 });
@@ -58,12 +66,16 @@ function BarraNavegacion({ children }) {
 
     return (
         <Fragment>
+        <title> Flexopack</title>
             <Container className={classes.root}>
 
                 <Grid container direction='row' alignItems='center'>
                     <Hidden mdDown>
                         <Grid item xs={2}>
-                            <img src={ImgLogo} height='115px' />
+                        <a href='/'>
+                        <img src={ImgLogo} height='115px' />
+                        </a>
+                            
                             
                         </Grid>
                         <Grid item xs={10}>
@@ -178,6 +190,11 @@ function BarraNavegacion({ children }) {
                                                 </Link>
                                             </MenuItem>
                                             <MenuItem>
+                                                <Link to="/EmpaqueAlVacio" onClick={() => { toggleProfile() }} style={{ textDecoration: 'none', color: 'black' }}>
+                                                    EMPAQUE AL VACIO
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
                                                 <Link to='/Insumos' onClick={() => { toggleProfile() }} style={{ textDecoration: 'none', color: 'black' }}>
                                                     INSUMOS
                                                 </Link>
@@ -196,7 +213,10 @@ function BarraNavegacion({ children }) {
 
                             </Grid>
                             <Grid item xs={2}>
-                                <img src={ImgLogo} height='40px' />
+                            <a href='/'>
+                            <img src={ImgLogo} height='40px' />
+                        </a>
+                               
                             </Grid>
                         </Grid>
                     </Hidden>
@@ -204,7 +224,8 @@ function BarraNavegacion({ children }) {
                         {children}
                     </Grid>
                 </Grid>
-
+                <a href='https://api.whatsapp.com/send?phone=573014220139' target="_blank">
+                <img  className={classes.imgWhatsapp} src={Whatsapp}></img></a>
                 <Grid container alignItems='center' direction='column' className={classes.footer}>
                     <Grid item className={classes.footerFont} >Dirección Calle 36 # 93A 28</Grid>
                     <Grid item className={classes.footerFont}>Medellín - Colombia</Grid>
